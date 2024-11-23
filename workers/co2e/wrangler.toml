@@ -1,11 +1,10 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "grid-aware-worker-test"
+name = "grid-aware-worker-co2e"
 main = "src/index.js"
 compatibility_date = "2024-10-22"
 compatibility_flags = ["nodejs_compat"]
 routes = [
-	{ pattern = "gaw.fershad.com/grid-intensity/*", zone_name = "fershad.com" },
-	# { pattern = "gaw.fershad.com/power-breakdown/*", zone_name = "fershad.com" },
+	{ pattern = "gaw.thegreenwebfoundation.org/grid-intensity/*", zone_name = "thegreenwebfoundation.org" },
 ]
 
 [env.dev]

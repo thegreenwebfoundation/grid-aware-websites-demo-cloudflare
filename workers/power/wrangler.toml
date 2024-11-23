@@ -4,8 +4,7 @@ main = "src/index.js"
 compatibility_date = "2024-10-22"
 compatibility_flags = ["nodejs_compat"]
 routes = [
-	{ pattern = "gaw.fershad.com/power-breakdown/*", zone_name = "fershad.com" },
-	# { pattern = "gaw.fershad.com/power-breakdown/*", zone_name = "fershad.com" },
+	{ pattern = "gaw.thegreenwebfoundation.org/power-breakdown/*", zone_name = "thegreenwebfoundation.org" },
 ]
 
 [env.dev]
