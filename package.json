@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev:power": "run-p start:eleventy start:grid-aware-power open:power",
+    "dev:co2e": "run-p start:eleventy start:grid-aware-co2e open:co2e",
+    "start:eleventy": "npx eleventy --serve",
+    "start:grid-aware-power": "cd workers/power && npx wrangler dev --env dev",
+    "start:grid-aware-co2e": "cd workers/co2e && npx wrangler dev --env dev",
+    "open:power": "open-cli http://localhost:8787/power-breakdown",
+    "open:co2e": "open-cli http://localhost:8787/grid-intensity",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,5 +20,9 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@greenweb/grid-aware-websites": "^0.1.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "open-cli": "^8.0.0"
   }
 }
