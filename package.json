@@ -10,6 +10,9 @@
     "start:grid-aware-co2e": "cd workers/co2e && npx wrangler dev --env dev",
     "open:power": "open-cli http://localhost:8787/power-breakdown",
     "open:co2e": "open-cli http://localhost:8787/grid-intensity",
+    "workers:deploy": "run-s deploy:power deploy:co2e",
+    "deploy:power": "cd workers/power && npx wrangler deploy",
+    "deploy:co2e": "cd workers/co2e && npx wrangler deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
