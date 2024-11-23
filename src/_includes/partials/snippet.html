@@ -83,7 +83,7 @@ export default {
 
         // Otherwise, if the gridAware value is false, we return the response as is.
         // Again, we can add some headers to the response to show that the page is not grid-aware.
-        return new Response(addData.transform(response).body, {
+        return new Response(response.body, {
             ...response,
             contentType: 'text/html',
             headers: {
