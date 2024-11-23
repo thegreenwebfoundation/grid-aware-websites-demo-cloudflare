@@ -16,7 +16,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Fershad Irani",
+    "email": "fershad@greenweb.org",
+    "url": "https://fershad.com"
+  },
   "license": "ISC",
   "description": "",
   "type": "module",
