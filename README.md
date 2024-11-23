@@ -15,7 +15,18 @@ This demo shows the `@greenweb/grid-aware-websites` package being used to check 
 
 For more information, see the [Grid-aware Websites](https://github.com/thegreenwebfoundation/grid-aware-websites) project repository.
 
-## Running locally
+## Example Worker
+
+The [`example`](/example/) folder contains a boilerplate Cloudflare Worker script that can help you get started. To use it:
+
+1. Copy the files to a folder on your computer.
+2. In your terminal, navigate to that folder and run the `npm install` command.
+3. Rename the `example.dev.vars` to `.dev.vars`. Inside that file, update the `EMAPS_API_KEY` variable to your [Electricity Maps API Key](https://www.electricitymaps.com/free-tier-api).
+4. Modify the `src/index.js` file as desired. It is setup to use the `gridAwarePower` function from the `@greenweb/grid-aware-websites` library.
+5. Update teh `wrangler.toml` file with a project name, and point it to the routes you want to deploy this Worker on.
+6. Test the worker by running `npx wrangler dev`. Deploy the Worker by running `npx wrangler deploy`.
+
+## Running this site locally
 
 This website is a minimal Eleventy site with some static assets. To run this project locally, you can:
 
