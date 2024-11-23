@@ -1,0 +1,137 @@
+:where(html) {
+  --sand-0: #f8fafb;
+  --sand-1: #e6e4dc;
+  --sand-2: #d5cfbd;
+  --stone-10: #3a3a37;
+  --stone-9: #50514f;
+  --stone-10: #3a3a37;
+  --stone-11: #252521;
+  --font-monospace-code: Dank Mono, Operator Mono, Inconsolata, Fira Mono,
+    ui-monospace, SF Mono, Monaco, Droid Sans Mono, Source Code Pro,
+    Cascadia Code, Menlo, Consolas, DejaVu Sans Mono, monospace;
+  --font-mono: var(--font-monospace-code);
+
+  --background: var(--sand-0);
+  --text: var(--stone-10);
+
+  --font-weight-1: 100;
+  --font-weight-2: 200;
+  --font-weight-3: 300;
+  --font-weight-4: 400;
+  --font-weight-5: 500;
+  --font-weight-6: 600;
+  --font-weight-7: 700;
+  --font-weight-8: 800;
+  --font-weight-9: 900;
+  --font-lineheight-00: 0.95;
+  --font-lineheight-0: 1.1;
+  --font-lineheight-1: 1.25;
+  --font-lineheight-2: 1.375;
+  --font-lineheight-3: 1.5;
+  --font-lineheight-4: 1.75;
+  --font-lineheight-5: 2;
+  --font-size-00: 0.5rem;
+  --font-size-0: 0.75rem;
+  --font-size-1: 1rem;
+  --font-size-2: 1.1rem;
+  --font-size-3: 1.25rem;
+  --font-size-4: 1.5rem;
+  --font-size-5: 2rem;
+  --font-size-6: 2.5rem;
+  --font-size-7: 3rem;
+  --font-size-8: 3.5rem;
+
+  line-height: var(--font-lineheight-3);
+
+  --size-lg: 1024px;
+
+  --code-bg: var(--sand-1);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+  font-weight: var(--font-weight-9);
+  line-height: var(--font-lineheight-1);
+}
+:where(h1) {
+  font-size: var(--font-size-8);
+  max-inline-size: var(--size-header-1);
+}
+
+:where(h2) {
+  font-size: var(--font-size-6);
+  max-inline-size: var(--size-header-2);
+}
+
+:where(p, ul, ol, dl, h6) {
+  font-size: var(--font-size-2);
+}
+
+:where(pre) {
+  direction: ltr;
+  max-inline-size: max-content;
+  min-inline-size: 0;
+  white-space: pre;
+  writing-mode: lr;
+  background-color: var(--code-bg);
+  overflow-x: auto;
+}
+
+@font-face {
+  font-family: "Departure Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/static/fonts/DepartureMono-Regular.woff2") format("woff2"),
+    url("/static/fonts/DepartureMono-Regular.woff") format("woff");
+}
+
+html {
+  font-family: "Departure Mono", var(--font-mono);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-family: var(--font-sans);
+  max-width: var(--size-lg);
+}
+
+html[data-grid-aware="true"] {
+  --background: var(--stone-10);
+  --text: var(--sand-0);
+  --code-bg: var(--stone-9);
+  font-family: var(--font-mono);
+}
+
+a,
+a:visited {
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img[data-grid-aware-src] {
+  display: none;
+}
+
+img[data-grid-aware-src] + a {
+  margin-block: 1.5rem;
+}
+
+figure {
+  text-align: center;
+}
+
+.grid-aware-img-placeholder {
+  display: block;
+  margin-inline: auto;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--code-bg);
+}

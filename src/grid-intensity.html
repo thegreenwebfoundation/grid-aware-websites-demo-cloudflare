@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Aware Demo - Grid Intensity</title>
+    <link rel="stylesheet" href="/static/index_1.css">
+</head>
+<body>
+    <p>Choose to view the demo for:</p>
+    <ul>
+        <li>Grid-aware page based on <b>grid intensity</b>. (You are here)</li>
+        <li><a href="/power-breakdown/">Grid-aware page based on <b>power breakdown</b></a>.</li>
+    </ul>
+
+    <h1>Grid Aware Website using Grid Intensity</h1>
+    <p>This page uses grid intensity data from Electricity Maps and CO2.js to determine if the energy grid in your location is "dirtier" than average. Based on that, some of the design and content loaded by this page will change.</p>
+
+    <h2>Colours</h2>
+    <p id="colour-explainer">You're seeing the page in <span id="page-color">light mode</span>, which means either your local electricity grid is <span id="cleaner-dirtier">cleaner than average, or that no data was available for your region</span> .</p>
+
+    <hr>
+
+    <h2>Fonts</h2>
+    <p id="font-explainer">You're also seeing a <span id="font-type">custom font (Depature Mono)</span> used on this page.</p>
+
+    <hr>
+
+    <h2>Data</h2>
+    <p>This page has been modified based on the below data:</p>
+
+    <pre>
+        <code id="data">
+            
+        </code>
+    </pre>
+
+    <hr>
+
+    <h2>How does it work?</h2>
+    <p>This page uses the <a href="https://github.com/thegreenwebfoundation/grid-aware-websites">grid-aware-websites code library</a> to get the current energy grid intensity data from Electricity Maps. Based on the response, it will either return the regular site, or modify parts of the site to apply some low-impact web design practices (explained above).</p>
+    <p>All of this work takes part in a <span class="platform">Cloudflare Worker</span>, meaning there is JavaScript execution on the client device for any of this to happen.</p>
+
+    <h3>High-level diagram</h3>
+    <figure>
+        <img src="/static/grid-aware-high-level.png" alt="A diagram showing the flow of data via a web request from the browser, through an edge function, to the host server, and back.">
+        <figcaption>A high-level diagram showing the ideas behind the `grid-aware-websites` project.</figcaption>
+    </figure>
+
+    <h3>Edge worker diagram</h3>
+    <figure>
+        <img src="/static/grid-aware-co2e.png" alt="A diagram showing the operations inside an edge worker. First a fetch request is made to get a webpage from the host. Then, a request is made to the Electricity Maps API to fetch grid intensity data for the electricity grid of the user. With this data, a check is performed to determine if grid-aware design changes should be applied.">
+        <figcaption>A more detailed diagram showing the process that takes place inside the edge worker to determine if grid-aware design should be applied.</figcaption>
+    </figure>
+
+    <h3>Code snippet running on <span class="platform"></span></h3>
+    <p>This is a simplified snippet from the <span class="platform"></span> that works on this page.</p>
+
+    <p id="code-link"></p>
+    <pre>
+        <code id="snippet">      
+        </code>
+    </pre>
+
+<hr>
+
+    <p>Choose to view the demo for:</p>
+    <ul>
+        <li>Grid-aware page based on <b>grid intensity</b>. (You are here)</li>
+        <li><a href="/power-breakdown/">Grid-aware page based on <b>power breakdown</b></a>.</li>
+    </ul>
+
+</body>
+</html>
