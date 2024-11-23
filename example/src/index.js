@@ -8,17 +8,19 @@ export default {
 		// Then check if the request content type is HTML. If not, return the request and headers as is.
 		const contentType = response.headers.get('content-type');
 
-		// We include font here because we want to remove the font files if the site is grid-aware
+		// Check if the content type is HTML.
+		// If not, return the response as is.
 		if (!contentType || !contentType.includes('text/html')) {
 			return new Response(response.body, {
 				...response,
 			});
 		}
 
-		// If the content type is HTML, we can then do the grid aware checks
+		// Get the country of the user from the Cloudflare data
 		let cfData = cloudflare.getLocation(request);
 		let { country } = cfData;
 
+		// If the country is not found, return the response as is.
 		if (!country) {
 			return new Response(response.body, {
 				...response,
@@ -29,8 +31,10 @@ export default {
 			});
 		}
 
+		// Fetch the grid data for the country using the @greenweb/grid-aware-websites package
 		const gridData = await gridAwarePower(country, env.EMAPS_API_KEY);
 
+		// If the grid data is not found, return the response as is.
 		if (gridData.status === 'error') {
 			return new Response(response.body, {
 				...response,
