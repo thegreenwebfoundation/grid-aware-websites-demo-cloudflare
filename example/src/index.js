@@ -83,6 +83,7 @@ export default {
 			});
 		}
 
+		// If the gridAware value is set to false, then return the response as is.
 		return new Response(response.body, {
 			contentType: 'text/html',
 			headers: {
