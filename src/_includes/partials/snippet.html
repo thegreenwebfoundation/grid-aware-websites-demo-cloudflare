@@ -1,63 +1,16 @@
-export const gridAwareRewriter = (gridData, method) => {
-    return new HTMLRewriter()
-        .on('html', {
-            element(element) {
-                element.setAttribute('data-grid-aware', 'true');
-            },
-        })
-        .on('span#page-color', {
-            element(element) {
-                element.setInnerContent('dark mode');
-            },
-        })
-        .on('span#cleaner-dirtier', {
-            element(element) {
-                if (method === 'gridAwarePower') {
-                    element.setInnerContent('using less than 50% renewable energy.');
-                } else {
-                    element.setInnerContent('has a higher grid intensity than average.');
-                }
-            },
-        })
-        .on('#data', {
-            element(element) {
-                element.setInnerContent(JSON.stringify(gridData, null, 2).trim());
-            },
-        })
-        .on('#font-type', {
-            element(element) {
-                element.setInnerContent('system font');
-            },
-        })
-        .on('figure > img', {
-            element(element) {
-                const src = element.getAttribute('src');
-                const alt = element.getAttribute('alt');
-                element.setAttribute('data-grid-aware-src', src);
-                element.removeAttribute('src');
-                element.after(`<div class="grid-aware-img-placeholder"><a href="${src}" target="_blank">View original image</a><p>${alt}</p></div>`, { html: true });
-            },
-        })
-        .on('figure > figcaption', {
-            element(element) {
-                element.remove();
-            },
-        })
-}
+{% assign codeLink = 'https://github.com/thegreenwebfoundation/grid-aware-websites-demo-cloudflare/blob/main/workers/co2e/src/index.js' %}
+{% assign method = "gridAwareCO2e" %}
 
-export const regularRewriter = (gridData, method) => {
-    return new HTMLRewriter()
-        .on('#data', {
-            element(element) {
-                element.setInnerContent(JSON.stringify(gridData, null, 2).trim());
-            },
-        })
-}
+{% if mode == 'power' %}
+{% assign codeLink = 'https://github.com/thegreenwebfoundation/grid-aware-websites-demo-cloudflare/blob/main/workers/power/src/index.js' %}
+{% assign method = "gridAwarePower" %}
+{% endif %}
 
-export const cloudflareSnippet = (method) => {
-return `
+<p id="code-link"><a href={{ codeLink }} target="_blank">View the full code on GitHub</a></p>
+    <pre>
+        <code id="snippet">
 // Import the things we need from the grid-aware-websites library
-import { ${method} } from '@greenweb/grid-aware-websites';
+import { {{ method }} } from '@greenweb/grid-aware-websites';
 import { cloudflare } from '@greenweb/grid-aware-websites/plugins/edge';
 
 export default {
@@ -91,7 +44,7 @@ export default {
         }
 
         // Fetch the grid data from Electricity Maps via the grid-aware-websites library
-        const gridData = await ${method}(country, 'AN_API_KEY_HERE');
+        const gridData = await {{ method }}(country, 'AN_API_KEY_HERE');
 
         // If the grid data status is error, return the response as is.
         if (gridData.status === 'error') {
@@ -139,5 +92,6 @@ export default {
             },
         });
     },
-};`
-}
+};
+        </code>
+    </pre>

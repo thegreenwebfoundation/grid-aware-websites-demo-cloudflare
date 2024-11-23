@@ -1,6 +1,7 @@
 ---
 layout: base.html
 title: Power Breakdown
+mode: power
 ---
     <p>Choose to view the demo for:</p>
     <ul>
@@ -12,7 +13,7 @@ title: Power Breakdown
     <p>This page uses power consumption data from Electricity Maps to determine if the clean power sources used on your the energy grid in your location are over certain value. Based on that, some of the design and content loaded by this page will change.</p>
 
     <h2>Colours</h2>
-    <p id="colour-explainer">You're seeing the page in <span id="page-color">light mode</span>, which means either your local electricity grid is <span id="cleaner-dirtier">cleaner than a certain, or that no data was available for your region.</span></p>
+    <p id="colour-explainer">You're seeing the page in <span id="page-color">light mode</span>, which means either your local electricity grid is <span id="cleaner-dirtier">using more than 50% renewable energy, or that no data was available for your region.</span></p>
 
     <hr>
 
@@ -52,11 +53,7 @@ title: Power Breakdown
     <h3>Code snippet running on Cloudflare Workers</h3>
     <p>This is a simplified snippet from the Cloudflare Workers that works on this page.</p>
 
-    <p id="code-link"></p>
-    <pre>
-        <code id="snippet">
-        </code>
-    </pre>
+    {% include 'partials/snippet.html' %}
 
 <hr>
     <p>Choose to view the demo for:</p>
