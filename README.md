@@ -1,6 +1,6 @@
 # Grid-aware websites demo
 
-This repo is a demo website for the Green Web Foundation's [Grid-aware Websites](https://github.com/thegreenwebfoundation/grid-aware-websites) project. It demonstrates grid-aware code being run in against routes using Cloudflare Workers.
+This repo is a demo website for the Green Web Foundation's [Grid-aware Websites](https://github.com/thegreenwebfoundation/grid-aware-websites) project. It demonstrates grid-aware code being run on routes using Cloudflare Workers.
 
 ## Demo sites
 
@@ -23,7 +23,7 @@ The [`example`](/example/) folder contains a boilerplate Cloudflare Worker scrip
 2. In your terminal, navigate to that folder and run the `npm install` command.
 3. Rename the `example.dev.vars` to `.dev.vars`. Inside that file, update the `EMAPS_API_KEY` variable to your [Electricity Maps API Key](https://www.electricitymaps.com/free-tier-api).
 4. Modify the `src/index.js` file as desired. It is setup to use the `gridAwarePower` function from the `@greenweb/grid-aware-websites` library.
-5. Update teh `wrangler.toml` file with a project name, and point it to the routes you want to deploy this Worker on.
+5. Update the `wrangler.toml` file with a project name, and point it to the routes you want to deploy this Worker on.
 6. Test the worker by running `npx wrangler dev`. Deploy the Worker by running `npx wrangler deploy`.
 
 ## Running this site locally
