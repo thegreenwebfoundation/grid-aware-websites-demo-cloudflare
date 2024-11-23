@@ -8,6 +8,8 @@ routes = [
 	# { pattern = "gaw.fershad.com/power-breakdown/*", zone_name = "fershad.com" },
 ]
 
+[env.dev]
+route = "http://localhost:8080/grid-intensity/*"
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
