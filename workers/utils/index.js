@@ -88,8 +88,8 @@ export const regularRewriter = (gridData, method) => {
 export const cloudflareSnippet = (method) => {
 return `
 // Import the things we need from the grid-aware-websites library
-import { ${method} } from 'grid-aware-websites';
-import { cloudflare } from 'grid-aware-websites/plugins/edge';
+import { ${method} } from '@greenweb/grid-aware-websites';
+import { cloudflare } from '@greenweb/grid-aware-websites/plugins/edge';
 
 export default {
     async fetch(request, env, ctx) {
