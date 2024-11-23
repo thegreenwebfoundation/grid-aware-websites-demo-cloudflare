@@ -8,8 +8,8 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-import { gridAwareCO2e, gridAwarePower} from 'grid-aware-websites';
-import {cloudflare} from 'grid-aware-websites/plugins/edge';
+import { gridAwareCO2e, gridAwarePower} from '@greenweb/grid-aware-websites';
+import {cloudflare} from '@greenweb/grid-aware-websites/plugins/edge';
 import {gridAwareRewriter, regularRewriter} from '../../utils';
 
 export default {
