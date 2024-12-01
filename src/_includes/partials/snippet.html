@@ -11,7 +11,7 @@
         <code id="snippet">
 // Import the things we need from the grid-aware-websites library
 import { {{ method }} } from '@greenweb/grid-aware-websites';
-import { cloudflare } from '@greenweb/grid-aware-websites/plugins/edge';
+import { getLocation } from '@greenweb/gaw-plugin-cloudflare-workers';
 
 export default {
     async fetch(request, env, ctx) {
