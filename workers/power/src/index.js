@@ -9,7 +9,7 @@
  */
 
 import { gridAwarePower } from '@greenweb/grid-aware-websites';
-import { cloudflare } from '@greenweb/grid-aware-websites/plugins/edge';
+import { getLocation } from '@greenweb/gaw-plugin-cloudflare-workers';
 import { gridAwareRewriter, regularRewriter } from '../../utils';
 
 export default {
@@ -27,7 +27,7 @@ export default {
 		}
 
 		// If the content type is HTML, we can then do the grid aware checks
-		let cfData = cloudflare.getLocation(request);
+		let cfData = getLocation(request);
 		let { country } = cfData;
 
 		if (!country) {
