@@ -1,5 +1,5 @@
 import { gridAwarePower } from '@greenweb/grid-aware-websites';
-import { cloudflare } from '@greenweb/grid-aware-websites/plugins/edge';
+import { getLocation } from '@greenweb/gaw-plugin-cloudflare-workers';
 
 export default {
 	async fetch(request, env, ctx) {
@@ -17,7 +17,7 @@ export default {
 		}
 
 		// Get the country of the user from the Cloudflare data
-		let cfData = cloudflare.getLocation(request);
+		let cfData = getLocation(request);
 		let { country } = cfData;
 
 		// If the country is not found, return the response as is.
